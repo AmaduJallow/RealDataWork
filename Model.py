@@ -26,13 +26,13 @@ def train_model(year, population, interations, theta):
     return weight, bias
 
 
-# director = "C:/Users/amadu/PycharmProjects/RealDataWork/Data.csv"
-#
-# year, population = np.loadtxt(director, delimiter=",", unpack=True, dtype="float64")
-# plt.plot(year * 1000, population * 1000, "bo")
-# weight, bias = train_model(year, population, 1_000_000, 0.201)
-# print(weight, bias)
-# print(f"The population in the year 2023 is {predictor(2.023, weight, bias) * 1000}")
+director = "C:/Users/amadu/PycharmProjects/RealDataWork/Data.csv"
+
+year, population = np.loadtxt(director, delimiter=",", unpack=True, dtype="float64")
+plt.plot(year * 1000, population * 1000, "bo")
+weight, bias = train_model(year, population, 1_000_000, 0.2011)
+print(weight, bias)
+print(f"The population in the year 2023 is {predictor(2.023, weight, bias) * 1000}")
 
 newweight = 34002.27681327201
 newbias = -66679.07308859545
