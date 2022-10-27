@@ -11,9 +11,9 @@ def loss_function(year, population, weight, bias):
     return np.average((predictor(year, weight, bias) - population) ** 2)
 
 
-def gradient_function(year, populaion, weight, bias):
-    weight_gradient = 2 * np.average(year * (predictor(year, weight, bias) - populaion))
-    bias_gradient = 2 * np.average(predictor(year, weight, bias) - populaion)
+def gradient_function(year, population, weight, bias):
+    weight_gradient = 2 * np.average(year * (predictor(year, weight, bias) - population))
+    bias_gradient = 2 * np.average(predictor(year, weight, bias) - population)
     return weight_gradient, bias_gradient
 
 
@@ -23,6 +23,7 @@ def train_model(year, population, interations, theta):
         weight_gradient, bias_gradient = gradient_function(year, population, weight, bias)
         weight -= weight_gradient * theta
         bias -= bias_gradient * theta
+        print("weight = %f, bias = %f" % (weight, bias))
     return weight, bias
 
 
@@ -39,7 +40,7 @@ newbias = -66679.07308859545
 
 
 def predictor_xx(year):
-    print(f"The population for the year {int(year * 1000)} is {1000*((year * newweight) + newbias)}")
+    print(f"The population for the year {int(year * 1000)} is {1000 * ((year * newweight) + newbias)}")
 
 
 predictor_xx(2.023)
